@@ -13,3 +13,10 @@ def test_countries():
     response = client.get("/countries")
     assert response.status_code == 200
     assert sorted(response.json()) == ["England", "France", "Germany", "Italy", "Peru", "Portugal", "Spain"]
+
+
+def test_spain_cities():
+    """Verify the Spain route returns its available city."""
+    response = client.get("/countries/Spain")
+    assert response.status_code == 200
+    assert response.json() == ["Seville"]
